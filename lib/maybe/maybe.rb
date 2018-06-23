@@ -9,7 +9,8 @@ class Maybe
     end
 
     def from(value)
-      value && Just.new(value) || Nothing.new
+      return self.nothing if value.nil?
+      self.just(value)
     end
   end
 
@@ -37,6 +38,3 @@ class Maybe
     kind_of? Nothing
   end
 end
-
-require './just'
-require './nothing'

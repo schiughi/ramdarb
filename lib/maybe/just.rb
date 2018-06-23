@@ -6,11 +6,11 @@ class Just < Maybe
   end
 
   def map
-    Just.from(yield value)
+    Maybe.from(yield value)
   end
 
   def filter
-    return Just.from(nil) unless yield value
+    return Maybe.nothing unless yield value
     self
   end
 
