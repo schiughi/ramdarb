@@ -18,7 +18,7 @@ class Left < Either
   end
 
   def or_else
-    yield
+    yield value
   end
 
   def chain
