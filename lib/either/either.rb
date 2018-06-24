@@ -18,11 +18,6 @@ class Either
     end
   end
 
-  attr_reader :value
-  def initialize(value)
-    @value = value
-  end
-
   def left?
     kind_of? Left
   end

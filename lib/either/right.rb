@@ -1,10 +1,15 @@
 class Right < Either
+  attr_reader :value
+  def initialize(value)
+    @value = value
+  end
+
   def map
     Either.of(yield value)
   end
 
   def filter
-    return Either.from_nullable(nil) unless yield value
+    return Either.left(value) unless yield value
     self
   end
 

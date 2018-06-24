@@ -1,6 +1,10 @@
 class NothingValueError < StandardError; end
 
 class Left < Either
+  def initialize(value)
+    @value = value
+  end
+
   def map
     self
   end
@@ -18,7 +22,7 @@ class Left < Either
   end
 
   def or_else
-    yield value
+    yield @value
   end
 
   def chain
